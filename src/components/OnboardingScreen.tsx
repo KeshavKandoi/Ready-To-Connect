@@ -177,7 +177,7 @@ export function OnboardingScreen({
         setLocationStatus('denied')
         setLocationError(
           error.code === error.PERMISSION_DENIED
-            ? 'Location is required before you can use Ready to Talk.'
+            ? 'Location is required before you can use Ready to Connect.'
             : 'We could not read your location. Try again nearby.',
         )
       },
@@ -306,7 +306,7 @@ export function OnboardingScreen({
                 Nearby now
               </div>
               <h1 className="mt-4 text-3xl font-black tracking-[-0.05em] text-[var(--rt-ink)] sm:text-4xl">
-                Find people ready to talk nearby, {username}.
+                Find people ready to connect nearby, {username}.
               </h1>
               <p className="mt-3 text-sm leading-6 text-[var(--rt-ink-soft)] sm:text-base">
                 Start with nearby places. Pick one that feels active, then add

@@ -464,7 +464,7 @@ export async function resolveScanToken(input: { token: string }) {
   const token = input.token.trim()
 
   if (!token) {
-    throw new Error('Scan a Ready to Talk QR code first.')
+    throw new Error('Scan a Ready to Connect QR code first.')
   }
 
   return resolveScannedHandoff(token, session.user.id)
@@ -527,7 +527,7 @@ export async function previewScanJoin(input: { token: string }) {
   const token = input.token.trim()
 
   if (!token) {
-    throw new Error('Scan a Ready to Talk QR code first.')
+    throw new Error('Scan a Ready to Connect QR code first.')
   }
 
   return resolveScanPreview(token, session.user.id)
@@ -538,7 +538,7 @@ export async function joinPlaceAndConnectFromScan(input: { token: string }) {
   const token = input.token.trim()
 
   if (!token) {
-    throw new Error('Scan a Ready to Talk QR code first.')
+    throw new Error('Scan a Ready to Connect QR code first.')
   }
 
   const preview = await resolveScanPreview(token, session.user.id)

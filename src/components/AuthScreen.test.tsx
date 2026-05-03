@@ -9,7 +9,7 @@ afterEach(() => {
 })
 
 describe('AuthScreen', () => {
-  it('signs up with email and pseudonym', async () => {
+  it('signs up with email and username', async () => {
     const refreshSession = vi.fn(async () => {})
     const email = vi.fn(async () => ({ error: null }))
 
@@ -34,7 +34,7 @@ describe('AuthScreen', () => {
     fireEvent.change(screen.getByLabelText(/Email/i), {
       target: { value: 'ready@example.com' },
     })
-    fireEvent.change(screen.getByLabelText(/Pseudonym/i), {
+    fireEvent.change(screen.getByLabelText(/Username/i), {
       target: { value: 'ReadyTalk' },
     })
     fireEvent.change(screen.getByLabelText(/Password/i), {

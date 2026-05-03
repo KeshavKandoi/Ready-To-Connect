@@ -106,10 +106,10 @@ export function AuthScreen({
               Nearby conversations
             </div>
             <h1 className="mt-4 text-4xl font-black tracking-[-0.06em] text-[var(--rt-ink)]">
-              Ready to Talk
+              Ready to Connect
             </h1>
             <p className="mt-3 text-sm leading-6 text-[var(--rt-ink-soft)] sm:text-base">
-              Find local places where people are ready now. Your pseudonym is
+              Find local places where people are ready now. Your username is
               public. Your email stays private.
             </p>
           </div>
@@ -160,7 +160,7 @@ export function AuthScreen({
             <p className="mt-4 text-sm leading-6 text-[var(--rt-ink-soft)]">
               {mode === 'sign-in'
                 ? 'Pick up where you left off at the places around you.'
-                : 'Create a pseudonym-first account, then check live nearby places.'}
+                : 'Create a username-first account, then check live nearby places.'}
             </p>
 
             {error ? (
@@ -175,7 +175,7 @@ export function AuthScreen({
                   label="Username"
                   name="username"
                   autoComplete="username"
-                  placeholder="readytotalk"
+                  placeholder="readytoconnect"
                 />
                 <FormField
                   label="Password"
@@ -205,10 +205,10 @@ export function AuthScreen({
                   hint="Required for account recovery. Never shown in the app."
                 />
                 <FormField
-                  label="Pseudonym"
+                  label="Username"
                   name="username"
                   autoComplete="username"
-                  placeholder="readytotalk"
+                  placeholder="readytoconnect"
                 />
                 <FormField
                   label="Password"
