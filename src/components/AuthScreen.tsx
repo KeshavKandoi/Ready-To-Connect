@@ -96,6 +96,38 @@ export function AuthScreen({
     setPendingAction(null)
   }
 
+
+  const handleGuestLogin = async () => {
+    setError(null)
+    setPendingAction('sign-in')
+    
+    const guestId = Math.random().toString(36).slice(2, 8)
+    const guestUsername = `guest_${guestId}`
+    const guestEmail = `${guestUsername}@guest.readytoconnect.app`
+    const guestPassword = `Guest_${guestId}_2024!`
+
+    await client.signUp.email({
+      name: guestUsername,
+      email: guestEmail,
+      password: guestPassword,
+      username: guestUsername,
+    })
+
+    const result = await client.signIn.username({
+      username: guestUsername,
+      password: guestPassword,
+      rememberMe: false,
+    })
+
+    if (result.error) {
+      setError('Unable to continue as guest. Please try again.')
+      setPendingAction(null)
+      return
+    }
+
+    await refreshSession()
+    setPendingAction(null)
+  }
   return (
     <main className="min-h-screen px-4 py-6 sm:px-6">
       <div className="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-md flex-col justify-center">
@@ -193,6 +225,23 @@ export function AuthScreen({
                   <LogIn className="h-4 w-4" />
                   {pendingAction === 'sign-in' ? 'Logging in...' : 'Log in'}
                 </button>
+
+                <div className="relative flex items-center my-2">
+                  <div className="flex-grow border-t border-[var(--rt-border)]"></div>
+                  <span className="mx-3 text-xs text-[var(--rt-ink-soft)]">or</span>
+                  <div className="flex-grow border-t border-[var(--rt-border)]"></div>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleGuestLogin}
+                  disabled={pendingAction !== null}
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-[var(--rt-border)] bg-white/60 px-5 py-3 font-semibold text-[var(--rt-ink-soft)] transition hover:bg-white/80 disabled:opacity-70"
+                >
+                  👤 {pendingAction ? 'Setting up...' : 'Continue as Guest'}
+                </button>
+                <p className="text-center text-xs text-[var(--rt-ink-soft)]">
+                  No account needed. Try it instantly.
+                </p>
               </form>
             ) : (
               <form className="mt-5 space-y-4" onSubmit={handleSignUp}>
