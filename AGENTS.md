@@ -1,4 +1,4 @@
-# Ready to Talk
+# Ready to connect
 
 ## Product intent
 - Ready to Talk helps people connect when they are ready to talk.
