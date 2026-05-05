@@ -12,7 +12,7 @@
         "d1_databases": [
                 {
                         "binding": "DB",
-                        "database_name": "readytotalk-db",
+                        "database_name": "readytoconnect-db",
                         "database_id": "26fa377c-c2fa-43bd-82e9-0f06c73d7bc2",
                         "migrations_dir": "./drizzle"
                 }
